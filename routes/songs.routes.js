@@ -1,25 +1,23 @@
 import express from "express";
+import {
+  songIndex,
+  songCreate,
+  songUpdate,
+  songDelete,
+} from "../controllers/songs.controller.js";
+// import { songIndex } from "../controllers/songs.controller.js";
+const router = express.Router();
 
-const router= express.Router();
-
-//CRUD functionality 
+//CRUD functionality
 // for reading
-router.get("/",(req,res)=>{
-     res.send("Get all songs");
-})
+router.get("/", songIndex);
 // for create
-router.post("/",(req,res)=>{
-     res.send("Create a new song");
-})  
+router.post("/", songCreate);
 
 // for update
-router.put("/:id",(req,res)=>{
-    res.send("Update a song with id: ");
-})
+router.put("/:id", songUpdate);
 
 // for delete
-router.delete("/:id",(req,res)=>{
-    res.send("Delete a song with id: ");
-})
+router.delete("/:id", songDelete);
 
 export default router;

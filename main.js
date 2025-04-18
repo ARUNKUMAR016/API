@@ -1,8 +1,11 @@
 import express from "express";
 import songsRoutes from "./routes/songs.routes.js";
+import connectDb from "./lib/db.js";
 
 const app = express();
 const PORT = 6969;
+
+connectDb();
 
 app.get("/", (req, res) => {
   res.json({

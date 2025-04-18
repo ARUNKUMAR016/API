@@ -1,11 +1,29 @@
+import Song from "../models/songs.model.js";
+
 export const songIndex = (req, res) => {
   res.send("Get all yuvan  songs");
 };
 
-export const songCreate = (req, res) => {
+export const songCreate = async (req, res) => {
     console.log("POST /songs route hit");
-    console.log(req.body);
-    res.json(req.body);
+  
+
+//validate your data
+const newSong= new Song({
+    title:req.body.title,
+    artist:req.body.artist,
+    description:req.body.description,
+})
+
+try {
+    const song= await newSong.save();
+    return res.status(201).json(song);
+} catch (error) {
+    return res.status(400).json({message:error.message});
+}
+
+
+    return res.json(req.body);
 };
 
 

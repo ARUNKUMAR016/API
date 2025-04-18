@@ -3,9 +3,11 @@ export const songIndex = (req, res) => {
 };
 
 export const songCreate = (req, res) => {
-    console.log("🔥 New version: POST /songs route hit");
-    res.send("New version working");
+    console.log("POST /songs route hit");
+    console.log(req.body);
+    res.json(req.body);
 };
+
 
 
 export const songUpdate = (req, res) => {

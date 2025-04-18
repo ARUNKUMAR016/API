@@ -6,6 +6,7 @@ const app = express();
 const PORT = 6969;
 
 app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.urlencoded({extended: true}));
 
 connectDb();
 

@@ -5,6 +5,8 @@ import connectDb from "./lib/db.js";
 const app = express();
 const PORT = 6969;
 
+app.use(express.json()); // Middleware to parse JSON bodies
+
 connectDb();
 
 app.get("/", (req, res) => {

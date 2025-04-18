@@ -4,6 +4,7 @@ import {
   songCreate,
   songUpdate,
   songDelete,
+  songShow,
 } from "../controllers/songs.controller.js";
 // import { songIndex } from "../controllers/songs.controller.js";
 const router = express.Router();
@@ -13,6 +14,8 @@ const router = express.Router();
 router.get("/", songIndex);
 // for create
 router.post("/", songCreate);
+
+router.get("/:id", songShow);
 
 // for update
 router.put("/:id", songUpdate);
